@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-on:input="changeName">
+    <h1>Hello {{ name }}</h1>
+    <h2>Number: {{ number }}</h2>
+    <h2>Method: {{ sayHello() }}</h2>
+    <h2>If statement: {{ isOk ? 'I am ok' : 'I am not ok.' }}</h2>
+    <h2>Functions: {{ string.split('').reverse().join('') }}</h2>
+    <p>SUM (10 + 60) = {{ 10 + 60 }}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'Vue JS',
+        number: 100,
+        isOk: true,
+        string: 'My name is Andrii'
+      },
+      methods: {
+        changeName: function (event) {
+            this.name = event.target.value
+        },
+        sayHello: function () {
+            return 'I am Hello from the method.'
+        }
+      }
+    })
+</script>
+</body>
+</html>
