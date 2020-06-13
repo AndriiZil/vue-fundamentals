@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+  <h1 v-if="isVisible">I am visible v-if</h1>
+  <h1 v-else>I am not visible</h1>
+
+  <hr>
+
+  <button @click="isVisible = !isVisible">toggle</button>
+
+  <hr>
+
+  <h1 v-show="isVisible">I am visible v-show</h1>
+  <h1 v-show="!isVisible">I am not visible</h1>
+
+  <hr>
+
+  <button @click="isVisible = !isVisible">toggle</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+  new Vue({
+    el: '#app',
+    data: {
+      isVisible: true
+    }
+  });
+
+</script>
+</body>
+</html>

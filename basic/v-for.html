@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+  <ul>
+    <li v-for="person in people">{{ person }}</li>
+  </ul>
+
+  <hr>
+
+  <ul>
+    <li v-for="(person, index) in people">{{ index + 1 }}: {{ person }}</li>
+  </ul>
+
+  <hr>
+
+  <ul>
+    <li v-for="(person, index) in employee">{{ index + 1 }}: {{ person.name }} - <b>{{ person.age }}</b></li>
+  </ul>
+
+  <hr>
+
+  <ol>
+    <li v-for="num of 5">{{ num }}</li>
+  </ol>
+
+  <hr>
+
+  <ul>
+    <li v-for="(value, key, index) in person">{{ value }} : {{ key }} <em>{{ index + 1 }}</em></li>
+  </ul>
+
+  <hr>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+  new Vue({
+    el: '#app',
+    data: {
+      people: ['Vlad', 'Max', 'Elena', 'Igor', 'Tanya'],
+      employee: [
+        { name: 'Alex', age: 45 },
+        { name: 'Bob', age: 22 },
+        { name: 'Elis', age: 32 },
+        { name: 'Tom', age: 27 }
+      ],
+      person: { name: 'Ted', age: 50, job: 'Full stack' }
+    }
+  });
+
+</script>
+</body>
+</html>

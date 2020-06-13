@@ -16,7 +16,22 @@
     <h2>Method: {{ sayHello() }}</h2>
     <h2>If statement: {{ isOk ? 'I am ok' : 'I am not ok.' }}</h2>
     <h2>Functions: {{ string.split('').reverse().join('') }}</h2>
+    <h2>
+        <a v-bind:href="url">{{ url }}</a>
+    </h2>
+    <h2 v-html="link"></h2>
     <p>SUM (10 + 60) = {{ 10 + 60 }}</p>
+    <h2>Counter = {{ counter }}</h2>
+    <button v-on:click="addCounter">Add Counter</button>
+    <hr>
+    <h2>Counter = {{ counter2 }}</h2>
+    <button v-on:click="counter2++">Add Counter</button>
+
+    <h1 v-on:mouseover="onHover">Change color</h1>
+    <hr>
+    <h1>{{ title }}: {{ counter3 }}</h1>
+    <button v-on:click="add(5, 'Changed 5', $event)">Add 5</button>
+    <button v-on:click="add(10, 'Changed 10', $event)">Add 10</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -27,7 +42,13 @@
         name: 'Vue JS',
         number: 100,
         isOk: true,
-        string: 'My name is Andrii'
+        string: 'My name is Andrii',
+        url: 'http://google.com',
+        link: '<a href="http://google.com">Google</a>',
+        counter: 0,
+        counter2: 0,
+        counter3: 0,
+        title: 'Counter'
       },
       methods: {
         changeName: function (event) {
@@ -35,6 +56,21 @@
         },
         sayHello: function () {
             return 'I am Hello from the method.'
+        },
+        addCounter: function () {
+            this.counter++;
+        },
+        onHover: function (event) {
+            event.target.style.color = 'red'
+        },
+        add: function (number, str, event) {
+            this.counter3 += number;
+            this.title = str
+          if (number === 5) {
+            event.target.style.color = 'blue'
+          } else if (number === 10) {
+            event.target.style.color = 'red'
+          }
         }
       }
     })
